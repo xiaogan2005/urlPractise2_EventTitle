@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JsonData.h"
 
 @interface TableViewController : UIViewController
-
+@property NSArray *arr_objs;
 @end

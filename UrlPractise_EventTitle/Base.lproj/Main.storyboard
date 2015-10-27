@@ -21,7 +21,7 @@
                                 <animations/>
                                 <state key="normal" title="Parse Data"/>
                                 <connections>
-                                    <segue destination="QJC-TI-AkV" kind="push" id="wy2-tl-nal"/>
+                                    <action selector="click_bt_parse:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eTY-vz-P37"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -33,15 +33,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1UQ-FJ-qBR"/>
+                    <connections>
+                        <segue destination="QJC-TI-AkV" kind="push" identifier="gotoTableView" id="hdo-dx-c35"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="571" y="380"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="Vj0-y8-XEm">
             <objects>
-                <viewController id="bBr-er-tOC" sceneMemberID="viewController">
+                <viewController id="bBr-er-tOC" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cHS-aA-Tgv"/>
                         <viewControllerLayoutGuide type="bottom" id="47Z-zq-sP5"/>
@@ -68,15 +71,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ssq-g4-FVq"/>
+                    <connections>
+                        <outlet property="textView_1" destination="i2S-iL-Beg" id="FiU-xK-8LE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="du7-Qr-6LS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1313" y="380"/>
         </scene>
-        <!--View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="w66-ma-Pky">
             <objects>
-                <viewController id="QJC-TI-AkV" sceneMemberID="viewController">
+                <viewController id="QJC-TI-AkV" customClass="TableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yC2-cb-Sxh"/>
                         <viewControllerLayoutGuide type="bottom" id="3Z2-8s-dXs"/>
@@ -90,7 +96,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="UnN-2F-hxJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="UnN-2F-hxJ">
                                         <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UnN-2F-hxJ" id="j5c-SE-hdb">
@@ -116,6 +122,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nPh-jZ-X3D"/>
+                    <connections>
+                        <outlet property="tableView_1" destination="X0S-yf-hKq" id="nMk-GK-4xJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxD-0u-Lmo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

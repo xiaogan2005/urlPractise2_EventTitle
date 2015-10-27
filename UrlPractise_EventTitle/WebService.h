@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface WebService : NSObject
+@property NSMutableArray *arr_objs;
+-(void)webServiceCall:(NSString *)str;
+-(void)webServiceCallUsingNSJSONSerialization:(NSString *)str;
 
 @end

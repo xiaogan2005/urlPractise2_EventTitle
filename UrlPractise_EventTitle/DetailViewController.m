@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 
 @interface DetailViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *textView_1;
 
 @end
 
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _textView_1.text=_obj.details;
 }
 
 - (void)didReceiveMemoryWarning {
