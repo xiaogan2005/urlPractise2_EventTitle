@@ -15,6 +15,7 @@
 
 - (IBAction)click_bt_parse:(id)sender;
 @property NSArray *arr_objs;
+@property WebService *ws;
 @end
 
 @implementation ViewController
@@ -22,6 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+   _ws=[WebService new];
+    NSString *str=@"http://183.82.48.194:8484/REM/RemService.svc/GetPublicEvent";
+    //[ws webServiceCall:str];
+    [_ws webServiceCall:str]; //not working
+   
     
     
     
@@ -33,23 +39,11 @@
 }
 
 - (IBAction)click_bt_parse:(id)sender {
-   
-    WebService *ws=[WebService new];
-    NSString *str=@"http://183.82.48.194:8484/REM/RemService.svc/GetPublicEvent";
-    [ws webServiceCall:str];
-    //[ws webServiceCallUsingNSJSONSerialization:str]; not working
-    _arr_objs=ws.arr_objs;
-    NSLog([_arr_objs description]);//nil???
+    _arr_objs=_ws.arr_objs;
     
-    //segue
-    TableViewController *viewController=[TableViewController new];
-    UIStoryboardSegue *segue_1=[UIStoryboardSegue segueWithIdentifier:@"gotoTableView" source:self destination:viewController performHandler:^(void){
-        
-        
-        NSLog(@"going to tableview");
-        
-        viewController.arr_objs=_arr_objs;
-    }];
+    NSLog(@"arr%@",[_arr_objs description]);//nil???
+    
+   
     NSLog(@"end of bt_click");
 }
 

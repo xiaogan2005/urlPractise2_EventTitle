@@ -17,8 +17,8 @@
     NSURL *url=[NSURL URLWithString:str_url];
     NSURLSession *session=[NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask=[session dataTaskWithURL: url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
-        //NSLog(@"the data is %@",data);
-        //NSLog(@"the response is %@",response);
+        NSLog(@"the data is %@",data);
+        NSLog(@"the response is %@",response);
         // need to change the data into visible format ,or it just hex-number, use [ description]
         
         //id no pointer needed, cause id is pointer
@@ -28,11 +28,13 @@
             NSLog(@"there is error:%@",error);
             
         }else{
-            // NSLog(@"the data is:%@",[object description]);
+             NSLog(@"the data is:%@",[object description]);
             if(object){
                 //if object is not nil
                 NSLog(@"call jsonObject mehtod");
-                [self jsonObjectWithData:object];}
+                [self jsonObjectWithData:object];
+            
+            }
         }
         
     }];
@@ -48,15 +50,20 @@
     NSURL *url=[NSURL URLWithString:str_url];
     NSURLSession *session=[NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask=[session dataTaskWithURL: url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        NSLog(@"the data is %@",data);
+        //NSLog(@"the response is %@",response);
         //data is a array of dictionarys
         //This might give you a clear picture of how to handle it using NSJSONSerialization
         NSError *e = nil;
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &e];
-        
+        //NSLog(@"this is description of array %@",[jsonArray description]);
+        NSLog(@"count of array :%@",jsonArray.count);
         if (!jsonArray) {
             NSLog(@"Error parsing JSON: %@", e);
         } else {
+            //something wrong with jsonArray
             for(NSDictionary *item in jsonArray) {
+                NSLog(@"this is description of dictionary %@",[item description]);
                 [self jsonObjectWithData:item];
             }
         }
@@ -83,9 +90,9 @@
     
     if([object isKindOfClass:[NSDictionary class]]){
         NSDictionary *dict_main=object;
-        //NSLog(@"the main dict is%@",dict_main);
+        NSLog(@"the main dict is%@",dict_main);
         NSArray *arr_result=[dict_main objectForKey:@"GetPublicEventResult"];
-        //NSLog(@"the result is:%@",arr_result);
+        NSLog(@"the result is:%@",arr_result);
         
         for(int i=0;i<arr_result.count;i++){
             NSDictionary *dict_temp=arr_result[i];
@@ -106,7 +113,7 @@
             
             
             [_arr_objs addObject:obj];
-            
+            NSLog(@"count%lu",[_arr_objs count]);
             
             
         }

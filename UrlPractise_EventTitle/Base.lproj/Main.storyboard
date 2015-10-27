@@ -22,6 +22,7 @@
                                 <state key="normal" title="Parse Data"/>
                                 <connections>
                                     <action selector="click_bt_parse:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eTY-vz-P37"/>
+                                    <segue destination="QJC-TI-AkV" kind="push" identifier="gotoTableView" id="D0X-65-QUA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -33,9 +34,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1UQ-FJ-qBR"/>
-                    <connections>
-                        <segue destination="QJC-TI-AkV" kind="push" identifier="gotoTableView" id="hdo-dx-c35"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -106,10 +104,14 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <segue destination="bBr-er-tOC" kind="push" id="ATs-ip-ytr"/>
+                                            <segue destination="bBr-er-tOC" kind="push" identifier="gotoDetailView" id="ATs-ip-ytr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QJC-TI-AkV" id="XdG-Rk-veS"/>
+                                    <outlet property="delegate" destination="QJC-TI-AkV" id="OZf-Wi-0pE"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>
